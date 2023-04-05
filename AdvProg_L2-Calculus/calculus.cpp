@@ -20,7 +20,9 @@ double mySqrt(double x);
 ***/
 double myCos(double x) 
 {
-    return 0.0;
+    double cos = 1 - 1.0/2*pow(x, 2) + 1.0/24*pow(x, 4) - 1.0/720*pow(x, 6);
+    //     cos = 1 - 1/2!.x^2       + 1/4!.x^4       - 1/6!.x^6
+    return cos;
 }
 
 /***
@@ -31,7 +33,9 @@ double myCos(double x)
 ***/
 double mySin(double x)
 {
-    return 0.0;
+    double sin = x - 1.0/6*pow(x, 3) + 1.0/120*pow(x, 5) - 1.0/5040*pow(x, 7) + 1.0/362880*pow(x, 9);
+    //     sin = x - 1/3!.x^3         +1/5!.x^5          - 1/7!.x^7           + 1/9!.x^9
+    return sin;
 }
 
 
@@ -46,7 +50,12 @@ double mySqrt(double x) {
         cout << "Invalid argument" << endl;
         exit(1);
     }
-
-    
-    return 0;
+    double x0 = 10;
+    double x1;
+    for ( int i = 1; i <= 10; i++ )
+    {
+        x1 =  x0 - ( x0*x0 -x )/(2*x0) ;
+        x0 = x1;
+    }
+    return x1 ;
 }
